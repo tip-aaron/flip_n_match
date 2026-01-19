@@ -1,2 +1,4 @@
+package memory_bombs;
 
-public class TestApp {}
+public class TestApp {
+}
