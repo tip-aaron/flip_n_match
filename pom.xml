@@ -226,7 +226,7 @@
           </filters>
           <transformers>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-              <mainClass>memory_bombs:App</mainClass>
+              <mainClass>memory_bombs.App</mainClass>
             </transformer>
             <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
               <resource>META-INF/LICENSE.txt</resource>

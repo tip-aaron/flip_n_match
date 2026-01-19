@@ -1,0 +1,4 @@
+--patch-module
+memory_bombs=_
+--add-reads
+memory_bombs=ALL-UNNAMED
