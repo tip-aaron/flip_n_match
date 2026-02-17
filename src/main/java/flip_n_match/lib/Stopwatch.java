@@ -1,10 +1,13 @@
 package flip_n_match.lib;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 
 public class Stopwatch {
     private Thread tickerThread;
     private volatile boolean running = false;
+    private AtomicLong totalNanoSeconds = new AtomicLong(0);
 
     private long startTimeNano = 0;
     private long accTimeNano = 0;
@@ -27,6 +30,7 @@ public class Stopwatch {
             while (running) {
                 final long currentDuration = System.nanoTime() - startTimeNano;
                 final long totalTime = accTimeNano + currentDuration;
+                totalNanoSeconds.set(totalTime);
                 final String timeText = formatTime(totalTime);
 
                 onTick.accept(timeText);
