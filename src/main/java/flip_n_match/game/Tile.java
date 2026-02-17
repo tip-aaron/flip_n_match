@@ -1,19 +1,15 @@
 package flip_n_match.game;
 
 import lombok.Data;
+import lombok.Getter;
 
-@Data
-public class Tile {
-    public static enum TileType {
-        BOMB,
-        NORMAL;
-    }
+public abstract class Tile {
+    @Getter
+    private int row;
+    @Getter
+    private int col;
+    @Getter
+    private String textData;
 
-    private final int value;
-    private final TileType type;
-
-    public Tile(final TileType type, final int value) {
-        this.type = type;
-        this.value = value;
-    }
+    public abstract void reveal();
 }

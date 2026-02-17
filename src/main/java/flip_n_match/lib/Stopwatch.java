@@ -27,7 +27,6 @@ public class Stopwatch {
             while (running) {
                 final long currentDuration = System.nanoTime() - startTimeNano;
                 final long totalTime = accTimeNano + currentDuration;
-
                 final String timeText = formatTime(totalTime);
 
                 onTick.accept(timeText);
@@ -68,8 +67,10 @@ public class Stopwatch {
     private String formatTime(final long nanos) {
         final long totalMillis = nanos / 1_000_000;
         final long minutes = (totalMillis / 60_000);
-        final long seconds = (totalMillis / 60_000) / 1_000;
+        final long seconds = (totalMillis) / 1_000 % 60;
         final long millis = totalMillis % 1_000;
+
+        System.out.println(minutes + " " + seconds + " " + totalMillis);
 
         return String.format("%02d:%02d.%03d", minutes, seconds, millis);
     }

@@ -69,7 +69,7 @@ public class PageStartMenu extends Page {
         playActionListener = new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                Navigator.navigate(null);
+                Navigator.navigate(PageGame.class);
             }
         };
 
